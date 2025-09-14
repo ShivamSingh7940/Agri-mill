@@ -7,6 +7,8 @@ import { useState } from "react"
 
 export default function Home() {
   // carousel images
+  const [current, setCurrent] = useState(0);
+
   const carouselItems = [
     { id: 1, src:"https://res.cloudinary.com/dtttjumdo/image/upload/v1757845036/ChatGPT_Image_Sep_14_2025_03_38_28_PM_jjcfva.png" },
     { id: 2, src:"https://res.cloudinary.com/dtttjumdo/image/upload/v1757845036/ChatGPT_Image_Sep_14_2025_03_38_28_PM_jjcfva.png" },
