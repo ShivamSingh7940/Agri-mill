@@ -7,10 +7,10 @@ import { Leaf, Users, Award, Truck, Wrench, ShoppingCart, Phone } from "lucide-r
 export default function Home() {
   // carousel images
   const carouselItems = [
-    { id: 1, src: "/images/product1.jpg", title: "Organic Fertilizer" },
-    { id: 2, src: "/images/product2.jpg", title: "High Yield Seeds" },
-    { id: 3, src: "/images/product3.jpg", title: "Bio Stimulants" },
-    { id: 4, src: "/images/product4.jpg", title: "Agri Tools" }
+    { id: 1, src: "https://res.cloudinary.com/dtttjumdo/image/upload/v1757845036/ChatGPT_Image_Sep_14_2025_03_38_28_PM_jjcfva.png", title: "Organic Fertilizer" },
+    { id: 2, src: "https://res.cloudinary.com/dtttjumdo/image/upload/v1757846798/ChatGPT_Image_Sep_14_2025_04_15_59_PM_bpb10k.png", title: "High Yield Seeds" },
+    { id: 3, src: "https://res.cloudinary.com/dtttjumdo/image/upload/v1757847063/ChatGPT_Image_Sep_14_2025_04_19_56_PM_jxocp5.png", title: "Bio Stimulants" },
+    { id: 4, src: "https://res.cloudinary.com/dtttjumdo/image/upload/v1757847317/ChatGPT_Image_Sep_14_2025_04_24_44_PM_joclnm.png", title: "Agri Tools" }
   ]
 
   const [current, setCurrent] = useState(0)
@@ -99,7 +99,7 @@ export default function Home() {
           </div>
           <div className="flex justify-center">
             <Image
-              src="/images/about.jpg"
+              src="https://res.cloudinary.com/dtttjumdo/image/upload/v1757849281/About_us_ofmtos.png"
               alt="About Kissan"
               width={350}
               height={350}
@@ -231,10 +231,17 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-orange-500 text-center mb-12">Our Gallery</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {[1,2,3,4,5,6].map((i) => (
+      {[
+        "/gallery/image1.jpg",
+        "/gallery/image2.jpg",
+        "/gallery/image3.jpg",
+        "/gallery/image4.jpg",
+        "/gallery/image5.jpg",
+        "/gallery/image6.jpg",
+      ].map((src, i) => (
               <Image
                 key={i}
-                src={`/images/gallery${i}.jpg`}
+                src={src}
                 alt={`Gallery ${i}`}
                 width={400}
                 height={300}

@@ -60,7 +60,7 @@ export default function Categories() {
             >
               <div className="flex justify-center mb-4">
                 <img
-                  src={cat.img}
+                  src={"https://res.cloudinary.com/dtttjumdo/image/upload/v1757850130/Seeds_and_fertilizers_aplm22.jpg"}
                   alt={cat.title}
                   className="h-20 w-20 object-contain group-hover:scale-110 transition-transform"
                 />
