@@ -20,8 +20,8 @@ export default function Contact() {
               <Link href="/" className="hover:text-green-200 transition-colors">Home</Link>
               <Link href="/categories" className="hover:text-green-200 transition-colors">Categories</Link>
               <Link href="/store" className="hover:text-green-200 transition-colors">Our Store</Link>
-              <Link href="/services" className="hover:text-green-200 transition-colors">Best Services</Link>
-              <Link href="/careers" className="hover:text-green-200 transition-colors">Careers</Link>
+              {/* <Link href="/services" className="hover:text-green-200 transition-colors">Best Services</Link> */}
+              <Link href="/mission" className="hover:text-green-200 transition-colors">Our mission</Link>
               <Link href="/franchise" className="hover:text-green-200 transition-colors">Franchise</Link>
               <Link href="/contact" className="hover:text-green-200 transition-colors text-green-200">Contact</Link>
             </nav>

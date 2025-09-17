@@ -21,8 +21,8 @@ export default function Store() {
               <Link href="/" className="hover:text-green-200 transition-colors">Home</Link>
               <Link href="/categories" className="hover:text-green-200 transition-colors">Categories</Link>
               <Link href="/store" className="hover:text-green-200 transition-colors text-green-200">Our Store</Link>
-              <Link href="/services" className="hover:text-green-200 transition-colors">Best Services</Link>
-              <Link href="/careers" className="hover:text-green-200 transition-colors">Careers</Link>
+              {/* <Link href="/services" className="hover:text-green-200 transition-colors">Best Services</Link> */}
+              <Link href="/mission" className="hover:text-green-200 transition-colors">Our Mission</Link>
               <Link href="/franchise" className="hover:text-green-200 transition-colors">Franchise</Link>
               <Link href="/contact" className="hover:text-green-200 transition-colors">Contact</Link>
             </nav>

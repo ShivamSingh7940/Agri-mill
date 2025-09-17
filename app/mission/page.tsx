@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function Franchise() {
+export default function Samriddhi() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-green-50">
       {/* Header */}
@@ -20,8 +20,9 @@ export default function Franchise() {
               <Link href="/" className="hover:text-green-200 transition-colors">Home</Link>
               <Link href="/categories" className="hover:text-green-200 transition-colors">Categories</Link>
               <Link href="/store" className="hover:text-green-200 transition-colors">Our Store</Link>
+              {/* <Link href="/services" className="hover:text-green-200 transition-colors">Best Services</Link> */}
               <Link href="/mission" className="hover:text-green-200 transition-colors">Our Mission</Link>
-              <Link href="/franchise" className="hover:text-green-200 transition-colors text-green-200">Franchise</Link>
+              <Link href="/franchise" className="hover:text-green-200 transition-colors">Franchise</Link>
               <Link href="/contact" className="hover:text-green-200 transition-colors">Contact</Link>
             </nav>
           </div>
@@ -31,48 +32,39 @@ export default function Franchise() {
       {/* Hero Section */}
       <section className="bg-green-700 text-white py-20 text-center rounded-b-3xl shadow-md">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-          🌱 Bring Samriddhi Center to Your Community
+          🌱 Together, Let’s Grow Prosperity
         </h1>
         <p className="text-lg max-w-3xl mx-auto mb-6">
-          Your Store, Farmer’s Trust
+          Empowering Farmers. Enabling Smart Farming. Ensuring Prosperity.
         </p>
         <p className="text-base max-w-3xl mx-auto leading-relaxed">
-          Samriddhi Center is expanding across regions, creating opportunities for entrepreneurs
-          and progressive farmers to join our mission. By becoming a franchise partner, you not
-          only run a profitable business but also serve your farming community with trust,
-          quality, and innovation.
+          Samriddhi Center is committed to transforming farming into smart, sustainable, 
+          and profitable growth. Through quality inputs, expert guidance, and farmer-first service, 
+          we aim to build trust and nurture prosperity for every grower.
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col md:flex-row justify-center gap-4 mt-10">
           <Link
             href="/contact"
-            className="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-orange-600 transition"
+            className="bg-white text-green-700 px-6 py-3 rounded-lg shadow hover:bg-green-100 transition"
           >
-            👉 Apply for Franchise
+            👉 Contact Us
           </Link>
           <Link
-            href="/franchise-details"
-            className="bg-white text-green-700 px-6 py-3 rounded-lg font-semibold shadow hover:bg-green-100 transition"
+            href="/store"
+            className="bg-white text-green-700 px-6 py-3 rounded-lg shadow hover:bg-green-100 transition"
           >
-            📖 Learn More
+            📍 Find Nearest Center
+          </Link>
+          <Link
+            href="/partner"
+            className="bg-white text-green-700 px-6 py-3 rounded-lg shadow hover:bg-green-100 transition"
+          >
+            🤝 Partner With Us
           </Link>
         </div>
       </section>
-
-      <main className="container mx-auto px-4 py-16">
-        {/* Franchise Benefits */}
-        <section className="bg-white p-8 rounded-xl shadow-lg border text-center">
-          <h2 className="text-2xl font-bold text-orange-500 mb-6">✨ Franchise Benefits</h2>
-          <ul className="grid md:grid-cols-2 gap-4 text-gray-700 text-left max-w-3xl mx-auto">
-            <li>🚀 Proven business model in agri retail</li>
-            <li>🌱 Strong brand identity with farmer trust</li>
-            <li>📦 Wide product range under one roof</li>
-            <li>🎓 Training, support & marketing assistance</li>
-            <li>🤝 A mission to grow prosperity together</li>
-          </ul>
-        </section>
-      </main>
     </div>
   )
 }

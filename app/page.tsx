@@ -38,7 +38,7 @@ export default function Home() {
             </div>
           </Link>
           <nav className="hidden md:flex space-x-6 text-sm font-medium">
-            {["Home","Categories","Our Store","Best Services","Careers","Franchise","Contact"].map((item) => (
+            {["Home","Categories","Our Store","Our Mission","Franchise","Contact"].map((item) => (
               <Link
                 key={item}
                 href={`/${item.toLowerCase().replace(" ", "")}`}
@@ -52,91 +52,47 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-[500px] bg-gradient-to-r from-green-900 to-green-600 flex items-center">
-        <div className="absolute inset-0 bg-black/40 z-0"></div>
-        <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-8 items-center">
-          <div className="text-white space-y-6">
-            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
-              Bio Stimulants <br /> For Modern Farming
-            </h2>
-            <p className="text-lg opacity-90 max-w-lg">
-              Enriched with enzymes, amino acids, vitamins, and proteins to boost crop growth at every stage.
-            </p>
-            <Link
-              href="/store"
-              className="inline-block bg-yellow-400 text-green-900 font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-300 transition"
-            >
-              Explore Now
-            </Link>
-          </div>
-          <div className="flex justify-center">
-            <div className="bg-white/90 rounded-2xl p-8 shadow-xl text-center space-y-4 max-w-sm">
-              <h3 className="text-2xl font-bold text-green-700">Your Growth</h3>
-              <p className="text-gray-600">with</p>
-              <h3 className="text-2xl font-bold text-green-700">Kissan Agri Mall</h3>
-              <div className="bg-green-100 p-4 rounded-lg shadow-inner">
-                <p className="text-green-800 font-medium">Join our Franchise & Grow Together 🌱</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section
+  className="relative h-[500px] bg-cover bg-center flex items-center"
+  style={{
+    backgroundImage:
+      "url('https://res.cloudinary.com/djy15bn9n/image/upload/v1758045085/ChatGPT_Image_Sep_16_2025_11_17_06_PM_bu0pty.png')",
+  }}
+>
+  {/* dark overlay */}
+  <div className="absolute inset-0 bg-black/40 z-0"></div>
 
-      {/* About Us */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-orange-500 mb-6">About Us</h2>
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              Kissan Agri Mall started its journey in 2019 and has been at the forefront of agricultural innovation.
-            </p>
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              We provide seeds, fertilizers, bio-products, organic inputs, farm equipment, dairy, poultry, and animal feed— all under one roof.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              Our integrated farming solutions empower farmers to achieve higher productivity with trust & quality.
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <Image
-              src="https://res.cloudinary.com/dtttjumdo/image/upload/v1757849281/About_us_ofmtos.png"
-              alt="About Kissan"
-              width={350}
-              height={350}
-              className="rounded-full shadow-xl hover:scale-105 transition-transform"
-            />
-          </div>
-        </div>
-      </section>
+  <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-8 items-center">
+    <div className="text-white space-y-6">
+      <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+       Every Seed of Harvest deserves a Seed<br />of Happiness
+      </h2>
+      <p className="text-lg opacity-90 max-w-lg">
+        Samriddhi Center – Growing Prosperity with Farmers
+      </p>
+      <Link
+        href="/store"
+        className="inline-block bg-yellow-400 text-green-900 font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-300 transition"
+      >
+        Explore our Workings
+      </Link>
+    </div>
 
-      {/* Features / Benefits */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-orange-500 mb-12">Why Choose Us?</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
-              <Leaf className="mx-auto text-green-600" size={40} />
-              <h3 className="font-semibold mt-4">Organic Products</h3>
-              <p className="text-gray-600 mt-2 text-sm">Eco-friendly and sustainable farming inputs.</p>
-            </div>
-            <div className="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
-              <Users className="mx-auto text-green-600" size={40} />
-              <h3 className="font-semibold mt-4">Trusted by Farmers</h3>
-              <p className="text-gray-600 mt-2 text-sm">Thousands of farmers rely on us every day.</p>
-            </div>
-            <div className="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
-              <Award className="mx-auto text-green-600" size={40} />
-              <h3 className="font-semibold mt-4">Quality Guaranteed</h3>
-              <p className="text-gray-600 mt-2 text-sm">We deliver only certified and top-quality inputs.</p>
-            </div>
-            <div className="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
-              <Truck className="mx-auto text-green-600" size={40} />
-              <h3 className="font-semibold mt-4">Pan India Delivery</h3>
-              <p className="text-gray-600 mt-2 text-sm">Fast and reliable delivery across the country.</p>
-            </div>
-          </div>
+    <div className="flex justify-center">
+      <div className="bg-white/90 rounded-2xl p-8 shadow-xl text-center space-y-4 max-w-sm">
+        <h3 className="text-2xl font-bold text-green-700">Your Growth</h3>
+        <p className="text-gray-600">with</p>
+        <h3 className="text-2xl font-bold text-green-700">Kissan Agri Mall</h3>
+        <div className="bg-green-100 p-4 rounded-lg shadow-inner">
+          <p className="text-green-800 font-medium">
+            Join our Franchise & Grow Together 🌱
+          </p>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Extra Services Section */}
       <section className="py-20 bg-gray-100">
