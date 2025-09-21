@@ -6,16 +6,25 @@ import { Leaf, Users, Award, Truck, Wrench, ShoppingCart, Phone } from "lucide-r
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [current, setCurrent] = useState(0)
 
-  // carousel images
+  // Navigation links
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Categories", href: "/categories" },
+    { name: "Our Store", href: "/store" },
+    { name: "Our Mission", href: "/mission" },
+    { name: "Franchise", href: "/franchise" },
+    { name: "Contact", href: "/contact" },
+  ]
+
+  // Carousel images
   const carouselItems = [
     { id: 1, src: "https://res.cloudinary.com/dtttjumdo/image/upload/v1757845036/ChatGPT_Image_Sep_14_2025_03_38_28_PM_jjcfva.png", title: "Organic Fertilizer" },
     { id: 2, src: "https://res.cloudinary.com/dtttjumdo/image/upload/v1757846798/ChatGPT_Image_Sep_14_2025_04_15_59_PM_bpb10k.png", title: "High Yield Seeds" },
     { id: 3, src: "https://res.cloudinary.com/dtttjumdo/image/upload/v1757847063/ChatGPT_Image_Sep_14_2025_04_19_56_PM_jxocp5.png", title: "Bio Stimulants" },
     { id: 4, src: "https://res.cloudinary.com/dtttjumdo/image/upload/v1757847317/ChatGPT_Image_Sep_14_2025_04_24_44_PM_joclnm.png", title: "Agri Tools" }
   ]
-  const [current, setCurrent] = useState(0)
-  const navLinks = ["Home","Categories","Our Store","Our Mission","Franchise","Contact"]
 
   const prevSlide = () => setCurrent((prev) => (prev === 0 ? carouselItems.length - 1 : prev - 1))
   const nextSlide = () => setCurrent((prev) => (prev === carouselItems.length - 1 ? 0 : prev + 1))
@@ -44,11 +53,11 @@ export default function Home() {
           <nav className="hidden md:flex space-x-6 text-sm font-medium">
             {navLinks.map((item) => (
               <Link
-                key={item}
-                href={`/${item.toLowerCase().replace(" ", "")}`}
+                key={item.name}
+                href={item.href}
                 className="hover:text-yellow-300 transition-colors relative after:block after:h-[2px] after:bg-yellow-300 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
               >
-                {item}
+                {item.name}
               </Link>
             ))}
           </nav>
@@ -67,20 +76,15 @@ export default function Home() {
       {sidebarOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden">
           <div className="fixed top-0 left-0 w-64 h-full bg-green-700 text-white p-6 shadow-lg z-50 flex flex-col">
-            <button
-              className="self-end text-2xl mb-6"
-              onClick={() => setSidebarOpen(false)}
-            >
-              ✕
-            </button>
-            {navLinks.map(link => (
+            <button className="self-end text-2xl mb-6" onClick={() => setSidebarOpen(false)}>✕</button>
+            {navLinks.map((link) => (
               <Link
-                key={link}
-                href={`/${link.toLowerCase().replace(" ", "")}`}
+                key={link.name}
+                href={link.href}
                 className="py-2 px-3 rounded hover:bg-green-600 transition"
                 onClick={() => setSidebarOpen(false)}
               >
-                {link}
+                {link.name}
               </Link>
             ))}
           </div>
@@ -123,6 +127,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* Extra Services Section */}
       <section className="py-20 bg-gray-100">
