@@ -10,12 +10,12 @@ export default function Home() {
 
   // Navigation links
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Categories", href: "/categories" },
-    { name: "Our Store", href: "/store" },
-    { name: "Our Mission", href: "/mission" },
-    { name: "Franchise", href: "/franchise" },
-    { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/" },
+  { name: "Categories", href: "/categories" },
+  { name: "Store", href: "/store" },
+  { name: "Mission", href: "/mission" },
+  { name: "Franchise", href: "/franchise" },
+  { name: "Contact", href: "/contact" },
   ]
 
   // Carousel images
