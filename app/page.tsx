@@ -252,7 +252,7 @@ export default function Home() {
         >
           Become a Partner
         </Link>
-        <p className="mt-6 text-sm opacity-80">© {new Date().getFullYear()} Kissan Agri Mall. All rights reserved.</p>
+        <p className="mt-6 text-sm opacity-80">© {new Date().getFullYear()} Samriddhi Agri Mall. All rights reserved.</p>
       </footer>
     </div>
   )
