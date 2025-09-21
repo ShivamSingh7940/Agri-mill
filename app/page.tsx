@@ -29,14 +29,20 @@ export default function Home() {
       <header className="bg-gradient-to-r from-green-700 to-green-500 text-white py-3 shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2 hover:scale-105 transition-transform">
-            <div className="w-9 h-9 bg-orange-500 rounded-full flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-sm">K</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold">Kissan</h1>
-              <p className="text-xs opacity-80">Agri Mall</p>
-            </div>
-          </Link>
+  <div className="w-9 h-9 rounded-full overflow-hidden shadow-md relative">
+    <Image
+      src="https://res.cloudinary.com/djy15bn9n/image/upload/v1758454184/Screenshot_2025-09-21_165520_hdbb1j.png"
+      alt="Samriddhi Logo"
+      fill
+      className="object-cover"
+    />
+  </div>
+  <div>
+    <h1 className="text-xl font-bold">Samriddhi</h1>
+    <p className="text-xs opacity-80">Agri Mall</p>
+  </div>
+</Link>
+
           <nav className="hidden md:flex space-x-6 text-sm font-medium">
             {["Home","Categories","Our Store","Our Mission","Franchise","Contact"].map((item) => (
               <Link
