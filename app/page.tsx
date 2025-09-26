@@ -87,7 +87,7 @@ export default function Home() {
             <div className="bg-white/95 rounded-3xl p-10 shadow-2xl text-center space-y-4 max-w-sm transform hover:scale-105 transition-transform">
               <h3 className="text-3xl font-bold text-green-800">Your Growth</h3>
               <p className="text-gray-700">with</p>
-              <h3 className="text-3xl font-bold text-green-800">Kissan Agri Mall</h3>
+              <h3 className="text-3xl font-bold text-green-800">Samriddhi Agri Mall</h3>
               <div className="bg-green-100 p-5 rounded-xl shadow-inner">
                 <p className="text-green-900 font-medium">Join our Franchise & Grow Together 🌱</p>
               </div>
@@ -235,7 +235,7 @@ export default function Home() {
 {/* Footer CTA Section */}
 <footer className="bg-green-900 text-white py-20 text-center">
   <div className="container mx-auto px-6">
-    <h3 className="text-3xl font-bold mb-6">Join the Kissan Family Today 🌱</h3>
+    <h3 className="text-3xl font-bold mb-6">Join the Samriddhi Family Today 🌱</h3>
     <Link
       href="/franchise"
       className="bg-gradient-to-r from-yellow-400 to-yellow-300 text-green-900 px-8 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-xl"

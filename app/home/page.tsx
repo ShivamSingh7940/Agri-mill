@@ -117,7 +117,7 @@ export default function Home() {
             <div className="bg-white/90 rounded-2xl p-8 shadow-xl text-center space-y-4 max-w-sm">
               <h3 className="text-2xl font-bold text-green-700">Your Growth</h3>
               <p className="text-gray-600">with</p>
-              <h3 className="text-2xl font-bold text-green-700">Kissan Agri Mall</h3>
+              <h3 className="text-2xl font-bold text-green-700">Samriddhi Agri Mall</h3>
               <div className="bg-green-100 p-4 rounded-lg shadow-inner">
                 <p className="text-green-800 font-medium">
                   Join our Franchise & Grow Together 🌱
@@ -280,7 +280,7 @@ export default function Home() {
 
       {/* Footer CTA */}
       <footer className="bg-green-800 text-white py-12 text-center">
-        <h3 className="text-2xl font-bold mb-4">Join the Kissan Family Today 🌱</h3>
+        <h3 className="text-2xl font-bold mb-4">Join the Samriddhi Family Today 🌱</h3>
         <Link
           href="/franchise"
           className="bg-yellow-400 text-green-900 px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition"

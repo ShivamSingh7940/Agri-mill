@@ -83,7 +83,7 @@ export default function Contact() {
 
         <h1 className="text-5xl md:text-6xl font-extrabold drop-shadow-lg mb-6">📞 Contact Us</h1>
         <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-6 leading-relaxed drop-shadow-md">
-          Have questions or need support? We’re here to help you grow with Kissan Agri Mall.
+          Have questions or need support? We’re here to help you grow with Samriddhi Agri Mall.
         </p>
       </section>
 
@@ -97,7 +97,7 @@ export default function Contact() {
             <div className="space-y-4 text-gray-700">
               <div>
                 <h4 className="font-semibold mb-1">Head Office</h4>
-                <p>Kissan Agri Mall, Sonipat, Haryana, India</p>
+                <p>Samriddhi Agri Mall, Sonipat, Haryana, India</p>
               </div>
               <div>
                 <h4 className="font-semibold mb-1">Phone</h4>
@@ -105,7 +105,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-semibold mb-1">Email</h4>
-                <p>info@kissanagrimall.com</p>
+                <p>info@Samriddhiagrimall.com</p>
               </div>
               <div>
                 <h4 className="font-semibold mb-1">Business Hours</h4>
@@ -132,7 +132,7 @@ export default function Contact() {
           {["📞 Call Us", "📧 Email Us", "💬 WhatsApp"].map((item, idx) => (
             <div key={idx} className="bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg text-center hover:shadow-2xl transition transform hover:-translate-y-1">
               <h4 className="font-bold text-green-700 mb-2">{item}</h4>
-              <p className="text-gray-600">{item === "📧 Email Us" ? "info@kissanagrimall.com" : "+91 98765 43210"}</p>
+              <p className="text-gray-600">{item === "📧 Email Us" ? "info@samridhhiagrimall.com" : "+91 98765 43210"}</p>
             </div>
           ))}
         </div>
@@ -172,7 +172,7 @@ export default function Contact() {
       {/* Footer */}
       <footer className="bg-green-800 text-white py-12 mt-12">
         <div className="container mx-auto px-6 text-center space-y-4">
-          <p>© 2025 Kissan Agri Mall. All rights reserved.</p>
+          <p>© 2025 Samriddhi Agri Mall. All rights reserved.</p>
           <div className="flex justify-center gap-4">
             {["Facebook", "Instagram", "Twitter"].map((s, idx) => (
               <a key={idx} href="#" className="hover:text-orange-400 transition">{s}</a>
