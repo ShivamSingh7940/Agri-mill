@@ -24,7 +24,7 @@ export default function Store() {
             href="/"
             className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300"
           >
-            <div className="w-14 h-14 relative flex items-center justify-center bg-white/90 backdrop-blur-md rounded-full p-1 shadow-inner">
+            <div className="w-16 h-16 shadow-md relative flex items-center justify-center bg-white">
               <Image
                 src="https://res.cloudinary.com/djy15bn9n/image/upload/v1758454184/Screenshot_2025-09-21_165520_hdbb1j.png"
                 alt="Samriddhi Logo"
