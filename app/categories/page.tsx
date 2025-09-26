@@ -54,38 +54,40 @@ export default function Categories() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50 font-sans">
+
       {/* Header */}
-      <header className="bg-green-700 text-white py-3 shadow-md sticky top-0 z-50">
+      <header className="bg-gradient-to-r from-green-800 to-green-700 text-white py-4 shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-6 flex items-center justify-between">
-         <Link href="/" className="flex items-center space-x-2 hover:scale-105 transition-transform">
-  <div className="w-16 h-16 shadow-md relative flex items-center justify-center bg-white">
-    <Image
-      src="https://res.cloudinary.com/djy15bn9n/image/upload/v1758454184/Screenshot_2025-09-21_165520_hdbb1j.png"
-      alt="Samriddhi Logo"
-      fill
-      className="object-contain"
-    />
-  </div>
-  <div>
-    <h1 className="text-xl font-bold">Samriddhi</h1>
-    <p className="text-xs opacity-80">Center</p>
-  </div>
-</Link>
+          <Link href="/" className="flex items-center space-x-3 hover:scale-105 transition-transform">
+            <div className="w-16 h-16 shadow-lg relative flex items-center justify-center bg-white rounded-full overflow-hidden">
+              <Image
+                src="https://res.cloudinary.com/djy15bn9n/image/upload/v1758454184/Screenshot_2025-09-21_165520_hdbb1j.png"
+                alt="Samriddhi Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold tracking-wide">Samriddhi</h1>
+              <p className="text-sm opacity-70">Agri Mall</p>
+            </div>
+          </Link>
 
-
-          <nav className="hidden md:flex space-x-6 text-sm font-medium">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex space-x-8 text-sm font-medium">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`hover:text-orange-400 transition-colors ${link.name === "Categories" ? "text-orange-400" : ""}`}
+                className={`relative px-2 py-1 hover:text-yellow-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-yellow-300 after:scale-x-0 after:origin-left after:transition-transform ${link.name === "Categories" ? "text-yellow-300 after:scale-x-100" : ""}`}
               >
                 {link.name}
               </Link>
             ))}
           </nav>
 
+          {/* Mobile Hamburger */}
           <button
             className="md:hidden text-white text-2xl"
             onClick={() => setSidebarOpen(true)}
@@ -95,7 +97,8 @@ export default function Categories() {
         </div>
       </header>
 
-      {/* Sidebar for Mobile */}
+
+      {/* Mobile Sidebar */}
       {sidebarOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden">
           <div className="fixed top-0 left-0 w-64 h-full bg-green-700 text-white p-6 shadow-lg z-50 flex flex-col">
@@ -119,67 +122,70 @@ export default function Categories() {
         </div>
       )}
 
-      {/* Main Content */}
       <main className="container mx-auto px-6 py-16">
-        <h1 className="text-4xl font-extrabold text-center text-green-700 mb-12">
+
+        {/* Page Title */}
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-green-700 mb-12 tracking-tight">
           🌱 Product Categories
         </h1>
 
         {/* Why Us Section */}
         <section className="mt-20 text-center">
-          <h2 className="text-3xl font-bold text-green-700 mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-10">
             🌟 Why Shop With Samriddhi Center?
           </h2>
-          <div className="grid md:grid-cols-3 gap-10">
-            <div className="p-6 bg-green-50 rounded-xl shadow hover:shadow-lg">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 bg-gradient-to-tr from-green-50 to-green-100 rounded-3xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2">
               <h3 className="text-xl font-semibold text-orange-500 mb-2">✅ Trusted Products</h3>
-              <p className="text-gray-600">Only certified seeds, fertilizers, and tools for maximum farmer success.</p>
+              <p className="text-gray-700 mt-2">Only certified seeds, fertilizers, and tools for maximum farmer success.</p>
             </div>
-            <div className="p-6 bg-green-50 rounded-xl shadow hover:shadow-lg">
+            <div className="p-8 bg-gradient-to-tr from-green-50 to-green-100 rounded-3xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2">
               <h3 className="text-xl font-semibold text-orange-500 mb-2">📦 Wide Variety</h3>
-              <p className="text-gray-600">From seeds to farm machinery — everything under one roof.</p>
+              <p className="text-gray-700 mt-2">From seeds to farm machinery — everything under one roof.</p>
             </div>
-            <div className="p-6 bg-green-50 rounded-xl shadow hover:shadow-lg">
+            <div className="p-8 bg-gradient-to-tr from-green-50 to-green-100 rounded-3xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2">
               <h3 className="text-xl font-semibold text-orange-500 mb-2">💡 Expert Guidance</h3>
-              <p className="text-gray-600">Get the best crop advisory and technical support from our agri-experts.</p>
+              <p className="text-gray-700 mt-2">Get the best crop advisory and technical support from our agri-experts.</p>
             </div>
           </div>
         </section>
 
         {/* Offerings Section */}
-        <section className="mt-20">
-          <h2 className="text-3xl font-bold text-green-700 mb-2 text-center">
-            Our Offerings – Everything Your Farm Needs Under One Roof
+        <section className="mt-24">
+          <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-4 text-center">
+            Our Offerings – Everything Your Farm Needs
           </h2>
-          <p className="text-gray-600 text-center mb-10">
+          <p className="text-gray-600 text-center mb-12">
             “From planning to harvest, Samriddhi Center is your trusted partner in every step of farming.”
           </p>
 
           <div className="grid md:grid-cols-2 gap-10">
             {offerings.map((item, i) => (
-              <div key={i} className="p-6 border rounded-xl shadow hover:shadow-lg transition">
-                <h3 className="text-xl font-bold text-orange-500 mb-2">{item.icon} {item.title}</h3>
-                <p className="italic text-green-700 mb-2">{item.quote}</p>
-                <p className="text-gray-600 mb-3">{item.text}</p>
-                <button className="text-green-600 font-semibold hover:underline">{item.cta}</button>
+              <div key={i} className="p-8 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 relative overflow-hidden">
+                <div className="absolute top-4 left-4 text-5xl">{item.icon}</div>
+                <h3 className="text-xl font-bold text-orange-500 mb-3 ml-16">{item.title}</h3>
+                <p className="italic text-green-700 mb-3 ml-16">{item.quote}</p>
+                <p className="text-gray-600 mb-4 ml-16">{item.text}</p>
+                <button className="text-green-600 font-semibold hover:underline ml-16">{item.cta}</button>
               </div>
             ))}
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="mt-20 bg-green-600 text-white py-16 rounded-2xl shadow-xl text-center">
-          <h2 className="text-3xl font-bold mb-4">🚜 Ready to Boost Your Farming?</h2>
-          <p className="mb-6 text-lg">Visit our nearest store or contact us to explore our full range of agricultural solutions.</p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Link href="/our-store" className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-semibold transition">
+        {/* CTA Section */}
+        <section className="mt-24 bg-gradient-to-r from-green-700 to-green-600 text-white py-16 rounded-3xl shadow-xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">🚜 Ready to Boost Your Farming?</h2>
+          <p className="mb-8 text-lg md:text-xl">Visit our nearest store or contact us to explore our full range of agricultural solutions.</p>
+          <div className="flex flex-col md:flex-row gap-6 justify-center">
+            <Link href="/our-store" className="bg-gradient-to-r from-orange-400 to-orange-500 px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-transform shadow-lg">
               🏬 Find a Store
             </Link>
-            <Link href="/contact" className="bg-white text-green-700 hover:bg-green-100 px-6 py-3 rounded-lg font-semibold transition">
+            <Link href="/contact" className="bg-white text-green-700 hover:bg-gray-100 px-8 py-3 rounded-xl font-semibold transition shadow-lg">
               📞 Contact Us
             </Link>
           </div>
         </section>
+
       </main>
     </div>
   )
