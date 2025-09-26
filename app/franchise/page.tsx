@@ -21,12 +21,12 @@ export default function Franchise() {
       <header className="bg-green-700 text-white py-3 shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2 hover:scale-105 transition-transform">
-  <div className="w-9 h-9 rounded-full overflow-hidden shadow-md relative">
+  <div className="w-16 h-16 shadow-md relative flex items-center justify-center bg-white ">
     <Image
       src="https://res.cloudinary.com/djy15bn9n/image/upload/v1758454184/Screenshot_2025-09-21_165520_hdbb1j.png"
       alt="Samriddhi Logo"
       fill
-      className="object-cover"
+      className="object-contain"
     />
   </div>
   <div>
