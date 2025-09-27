@@ -1,6 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import Head from "next/head";
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "Categories", href: "/categories" },
+  { name: "Products", href: "/products" },
+  { name: "Our Store", href: "/store" },
+  { name: "Our Mission", href: "/mission" },
+  { name: "Franchise", href: "/franchise" },
+  { name: "Contact", href: "/contact" },
+];
 
 const products = [
   {
@@ -39,52 +51,99 @@ const products = [
 
 export default function ProductsPage() {
   const [expanded, setExpanded] = useState<number | null>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleExpand = (id: number) => {
     setExpanded(expanded === id ? null : id);
   };
 
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSidebarOpen(false);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-green-50">
+      <Head>
+        <title>Samriddhi Agri Mall - Products</title>
+        <meta
+          name="description"
+          content="Premium seeds, fertilizers, and farming equipment for sustainable agriculture."
+        />
+      </Head>
+
       {/* Header */}
       <header className="bg-green-600 text-white py-2 shadow-md">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center shadow">
-                <span className="text-white font-bold text-sm">S</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold">Samriddhi</h1>
-                <p className="text-xs">Agri Mall</p>
-              </div>
-            </Link>
-            <nav className="hidden md:flex space-x-6 text-sm">
-              <Link href="/" className="hover:text-green-200">
-                Home
+        <div className="container mx-auto px-4 flex items-center justify-between">
+          <Link
+            href="/"
+            className="flex items-center space-x-3 hover:scale-105 transition-transform"
+          >
+            <div className="w-16 h-16 shadow-lg relative flex items-center justify-center bg-white rounded-full overflow-hidden">
+              <Image
+                src="https://res.cloudinary.com/djy15bn9n/image/upload/v1758454184/Screenshot_2025-09-21_165520_hdbb1j.png"
+                alt="Samriddhi Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold tracking-wide">Samriddhi</h1>
+              <p className="text-sm opacity-70">Agri Mall</p>
+            </div>
+          </Link>
+
+          <nav className="hidden md:flex space-x-6 text-sm">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`hover:text-green-200 transition-colors ${
+                  link.name === "Products"
+                    ? "text-green-200 font-semibold"
+                    : ""
+                }`}
+              >
+                {link.name}
               </Link>
-              <Link href="/categories" className="hover:text-green-200">
-                Categories
-              </Link>
-              <Link href="/products" className="text-green-200 font-semibold">
-                Products
-              </Link>
-              <Link href="/store" className="hover:text-green-200">
-                Our Store
-              </Link>
-              <Link href="/mission" className="hover:text-green-200">
-                Our Mission
-              </Link>
-              <Link href="/franchise" className="hover:text-green-200">
-                Franchise
-              </Link>
-              <Link href="/contact" className="hover:text-green-200">
-                Contact
-              </Link>
-            </nav>
-          </div>
+            ))}
+          </nav>
+
+          <button
+            className="md:hidden text-white text-2xl"
+            onClick={() => setSidebarOpen(true)}
+          >
+            ☰
+          </button>
         </div>
       </header>
+
+      {/* Mobile Sidebar */}
+      {sidebarOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden">
+          <div className="fixed top-0 left-0 w-72 h-full bg-gradient-to-b from-green-700 to-green-900 text-white p-6 shadow-xl flex flex-col animate-slide-in">
+            <button
+              className="self-end text-2xl mb-6"
+              onClick={() => setSidebarOpen(false)}
+            >
+              ✕
+            </button>
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="py-3 px-4 rounded-lg hover:bg-green-600/70 transition-colors duration-300"
+                onClick={() => setSidebarOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="text-center py-16 bg-green-100">
@@ -105,41 +164,50 @@ export default function ProductsPage() {
         </Link>
       </section>
 
-      {/* Products Section */}
-      <main className="container mx-auto px-4 py-20">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-green-700 mb-14">
-          🌾 Our Products
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
+      {/* Products Section with Decorative Backgrounds */}
+      <section className="relative py-20">
+        {/* Decorative circles */}
+        <div className="absolute top-0 left-0 w-40 h-40 bg-green-200 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-orange-200 rounded-full translate-x-1/2 translate-y-1/2 opacity-30"></div>
+
+        <div className="container mx-auto px-4 flex flex-col gap-10 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center text-green-700 mb-14">
+            🌾 Our Products
+          </h2>
+
           {products.map((product, index) => (
             <div
               key={product.id}
-              className={`p-8 rounded-2xl shadow-xl border hover:scale-105 hover:shadow-2xl transition duration-300 
-                ${
-                  index % 2 === 0
-                    ? "bg-gradient-to-br from-green-50 to-white border-green-200"
-                    : "bg-gradient-to-br from-orange-50 to-white border-orange-200"
-                }`}
+              className={`p-8 rounded-2xl shadow-xl border hover:scale-105 hover:shadow-2xl transition duration-300 mx-auto w-full max-w-3xl ${
+                index % 2 === 0
+                  ? "bg-gradient-to-br from-green-50 to-white border-green-200"
+                  : "bg-gradient-to-br from-orange-50 to-white border-orange-200"
+              }`}
             >
-              <img
-                src={product.image}
-                alt={product.title}
-                className="w-full h-48 object-cover rounded-lg mb-6 shadow-md"
-              />
+              <div className="relative w-full h-64 mb-6 rounded-lg shadow-md overflow-hidden">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <h3 className="text-2xl font-bold text-green-700 mb-3">
                 {product.title}
               </h3>
-              <p className="text-gray-700 leading-relaxed">
-                {product.description}
-              </p>
+              <p className="text-gray-700 leading-relaxed">{product.description}</p>
 
-              {/* Expandable description */}
-              {expanded === product.id && (
-                <p className="text-gray-600 mt-3">{product.more}</p>
-              )}
+              <div
+                className={`overflow-hidden transition-all duration-500 ${
+                  expanded === product.id ? "max-h-96 mt-3" : "max-h-0"
+                }`}
+              >
+                <p className="text-gray-600">{product.more}</p>
+              </div>
 
               <button
                 onClick={() => toggleExpand(product.id)}
+                aria-expanded={expanded === product.id}
                 className="mt-4 text-green-700 font-semibold hover:underline"
               >
                 {expanded === product.id ? "Show Less" : "Read More"}
@@ -147,89 +215,65 @@ export default function ProductsPage() {
             </div>
           ))}
         </div>
-        {/* Testimonials */}{" "}
-        <section className="py-16 bg-green-50">
-          {" "}
-          <div className="container mx-auto px-4 text-center">
-            {" "}
-            <h2 className="text-3xl font-bold text-green-700 mb-8">
-              💬 What Farmers Say
-            </h2>{" "}
-            <div className="grid md:grid-cols-2 gap-8">
-              {" "}
-              <div className="p-6 bg-white rounded-xl shadow-md">
-                {" "}
-                <p className="italic text-gray-600">
-                  {" "}
-                  "Samriddhi’s seeds gave me the best harvest in years. Truly a
-                  game changer!"{" "}
-                </p>{" "}
-                <h4 className="mt-4 font-bold text-green-700">
-                  – Ramesh, Farmer
-                </h4>{" "}
-              </div>{" "}
-              <div className="p-6 bg-white rounded-xl shadow-md">
-                {" "}
-                <p className="italic text-gray-600">
-                  {" "}
-                  "Affordable and organic fertilizers have improved my soil
-                  quality. Highly recommend!"{" "}
-                </p>{" "}
-                <h4 className="mt-4 font-bold text-green-700">
-                  – Meena, Farmer
-                </h4>{" "}
-              </div>{" "}
-            </div>{" "}
-          </div>{" "}
-        </section>{" "}
-        {/* FAQ */}{" "}
-        <section className="py-16 bg-white">
-          {" "}
-          <div className="container mx-auto px-4">
-            {" "}
-            <h2 className="text-3xl font-bold text-green-700 mb-8 text-center">
-              ❓ Frequently Asked Questions
-            </h2>{" "}
-            <div className="space-y-6 max-w-3xl mx-auto">
-              {" "}
-              <div>
-                {" "}
-                <h3 className="font-semibold text-lg">
-                  Do you deliver nationwide?
-                </h3>{" "}
-                <p className="text-gray-600">
-                  Yes, we deliver to all major cities and towns in India.
-                </p>{" "}
-              </div>{" "}
-              <div>
-                {" "}
-                <h3 className="font-semibold text-lg">
-                  Are the products certified organic?
-                </h3>{" "}
-                <p className="text-gray-600">
-                  Most of our products are government-certified organic and
-                  eco-safe.
-                </p>{" "}
-              </div>{" "}
-              <div>
-                {" "}
-                <h3 className="font-semibold text-lg">
-                  Do you provide bulk discounts?
-                </h3>{" "}
-                <p className="text-gray-600">
-                  Yes, bulk buyers and cooperatives can avail special discounts.
-                </p>{" "}
-              </div>{" "}
-            </div>{" "}
-          </div>{" "}
-        </section>
-      </main>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 bg-green-50 mt-20 rounded-xl shadow-inner">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-green-700 mb-8">
+            💬 What Farmers Say
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-6 bg-white rounded-xl shadow-md">
+              <p className="italic text-gray-600">
+                "Samriddhi’s seeds gave me the best harvest in years. Truly a
+                game changer!"
+              </p>
+              <h4 className="mt-4 font-bold text-green-700">– Ramesh, Farmer</h4>
+            </div>
+            <div className="p-6 bg-white rounded-xl shadow-md">
+              <p className="italic text-gray-600">
+                "Affordable and organic fertilizers have improved my soil quality.
+                Highly recommend!"
+              </p>
+              <h4 className="mt-4 font-bold text-green-700">– Meena, Farmer</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 bg-white mt-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-green-700 mb-8 text-center">
+            ❓ Frequently Asked Questions
+          </h2>
+          <div className="space-y-6 max-w-3xl mx-auto">
+            <div>
+              <h3 className="font-semibold text-lg">Do you deliver nationwide?</h3>
+              <p className="text-gray-600">
+                Yes, we deliver to all major cities and towns in India.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">Are the products certified organic?</h3>
+              <p className="text-gray-600">
+                Most of our products are government-certified organic and eco-safe.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">Do you provide bulk discounts?</h3>
+              <p className="text-gray-600">
+                Yes, bulk buyers and cooperatives can avail special discounts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-green-700 text-white text-center py-6">
-        <p>
-          © {new Date().getFullYear()} Samriddhi Agri Mall. All Rights Reserved.
-        </p>
+      <footer className="bg-green-700 text-white text-center py-6 mt-10">
+        <p>© {new Date().getFullYear()} Samriddhi Agri Mall. All Rights Reserved.</p>
       </footer>
     </div>
   );
