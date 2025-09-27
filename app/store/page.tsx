@@ -9,6 +9,7 @@ export default function Store() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Categories", href: "/categories" },
+    { name: "Products", href: "/products" },
     { name: "Our Store", href: "/store" },
     { name: "Our Mission", href: "/mission" },
     { name: "Franchise", href: "/franchise" },
@@ -188,7 +189,7 @@ export default function Store() {
 // Dummy Data
 const stores = [
   {
-    name: "Kissan Agri Mall - Sonipat",
+    name: "Samriddhi Agri Mall - Sonipat",
     desc: "Our flagship store in Sonipat, Haryana offers a complete range of agricultural products and farmer support services.",
     products: [
       "Seeds & Fertilizers",
@@ -201,7 +202,7 @@ const stores = [
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13624.486146067!2d77.0158!3d29.3312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c1f8a77c59c3f%3A0x7d4e0a7f8c5c6a2c!2sSonipat!5e0!3m2!1sen!2sin!4v1695731455281!5m2!1sen!2sin",
   },
   {
-    name: "Kissan Agri Mall - Panipat",
+    name: "Samriddhi Agri Mall - Panipat",
     desc: "Serving farmers of Panipat with quality products and trusted agri services.",
     products: ["Seeds", "Fertilizers", "Organic Inputs", "Farm Tools"],
     services: ["Crop Consultation", "Soil Health Check", "Rental Equipment"],

@@ -19,6 +19,7 @@ export default function Services() {
             <nav className="hidden md:flex space-x-6 text-sm">
               <Link href="/" className="hover:text-green-200 transition-colors">Home</Link>
               <Link href="/categories" className="hover:text-green-200 transition-colors">Categories</Link>
+               <Link href="/products" className="hover:text-green-200 transition-colors">Our Products</Link>
               <Link href="/store" className="hover:text-green-200 transition-colors">Our Store</Link>
               {/* <Link href="/services" className="hover:text-green-200 transition-colors text-green-200">Best Services</Link> */}
               <Link href="/mission" className="hover:text-green-200 transition-colors">Our Mission</Link>

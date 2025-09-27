@@ -44,6 +44,7 @@ const offerings = [
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Categories", href: "/categories" },
+  { name: "Products", href: "/products" },
   { name: "Store", href: "/store" },
   { name: "Mission", href: "/mission" },
   { name: "Franchise", href: "/franchise" },

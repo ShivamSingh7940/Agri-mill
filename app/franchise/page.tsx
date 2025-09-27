@@ -9,6 +9,7 @@ export default function Franchise() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Categories", href: "/categories" },
+    { name: "Products", href: "/products" },
     { name: "Our Store", href: "/store" },
     { name: "Our Mission", href: "/mission" },
     { name: "Franchise", href: "/franchise" },
