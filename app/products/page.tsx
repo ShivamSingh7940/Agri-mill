@@ -49,6 +49,40 @@ const products = [
   },
 ];
 
+// FAQItem Component with animated expand/collapse
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+const FAQItem = ({ faq }: { faq: FAQ }) => {
+  const [open, setOpen] = useState(false);
+  const [height, setHeight] = useState(0);
+  const contentRef = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(contentRef.current.scrollHeight);
+    }
+  }, [open]);
+
+  return (
+    <div className="border rounded-lg p-4 cursor-pointer hover:bg-green-50 transition">
+      <div className="flex items-center space-x-2" onClick={() => setOpen(!open)}>
+        <span className="text-green-700 font-bold text-xl">{open ? "−" : "+"}</span>
+        <h3 className="font-semibold text-lg">{faq.question}</h3>
+      </div>
+      <div
+        ref={contentRef}
+        style={{ maxHeight: open ? `${height}px` : "0px" }}
+        className="overflow-hidden transition-max-height duration-500 ease-in-out mt-2"
+      >
+        <p className="text-gray-600">{faq.answer}</p>
+      </div>
+    </div>
+  );
+};
+
 export default function ProductsPage() {
   const [expanded, setExpanded] = useState<number | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -248,25 +282,25 @@ export default function ProductsPage() {
           <h2 className="text-3xl font-bold text-green-700 mb-8 text-center">
             ❓ Frequently Asked Questions
           </h2>
-          <div className="space-y-6 max-w-3xl mx-auto">
-            <div>
-              <h3 className="font-semibold text-lg">Do you deliver nationwide?</h3>
-              <p className="text-gray-600">
-                Yes, we deliver to all major cities and towns in India.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg">Are the products certified organic?</h3>
-              <p className="text-gray-600">
-                Most of our products are government-certified organic and eco-safe.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg">Do you provide bulk discounts?</h3>
-              <p className="text-gray-600">
-                Yes, bulk buyers and cooperatives can avail special discounts.
-              </p>
-            </div>
+          <div className="space-y-4 max-w-3xl mx-auto">
+            {[
+              {
+                question: "Do you deliver nationwide?",
+                answer: "Yes, we deliver to all major cities and towns in India.",
+              },
+              {
+                question: "Are the products certified organic?",
+                answer:
+                  "Most of our products are government-certified organic and eco-safe.",
+              },
+              {
+                question: "Do you provide bulk discounts?",
+                answer:
+                  "Yes, bulk buyers and cooperatives can avail special discounts.",
+              },
+            ].map((faq, index) => (
+              <FAQItem key={index} faq={faq} />
+            ))}
           </div>
         </div>
       </section>
